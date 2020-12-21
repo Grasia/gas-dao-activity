@@ -1,2 +1,2 @@
-# granger-causality-gas-test
-Scripts to test Granger causality between Ethereum gas and DAO's activity
+# gas-dao-activity
+Scripts to causality between Ethereum gas and DAO's activity from Aragon, DAOstack and DAOhaus.
