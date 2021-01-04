@@ -8,7 +8,7 @@ if __name__ == '__main__':
     gas: pd.DataFrame = pd.read_csv(os.path.join('data', 'avg_gas_price.csv'), header=0)
     #activity: pd.DataFrame = pd.read_csv(os.path.join('data', 'daostack_activity.csv'), header=0)
     #activity: pd.DataFrame = pd.read_csv(os.path.join('data', 'daohaus_activity.csv'), header=0)
-    activity: pd.DataFrame = pd.read_csv(os.path.join('data', 'aragon_activity.csv'), header=0)
+    activity: pd.DataFrame = pd.read_csv(os.path.join('data', 'daostack_activity_membership_rate.csv'), header=0)
 
     gas.loc[:, 'UnixTimeStamp'] = pd.to_datetime(gas.loc[:, 'UnixTimeStamp'], unit='s').dt.date
     activity.loc[:, 'date'] = pd.to_datetime(activity.loc[:, 'date'], unit='s').dt.date
@@ -23,7 +23,7 @@ if __name__ == '__main__':
     )
 
     fig.add_trace(
-        go.Scatter(x=activity['date'].tolist(), y=activity['actions'].tolist(), name="Number of actions"),
+        go.Scatter(x=activity['date'].tolist(), y=activity['rateActionsMembers'].tolist(), name="Number of actions"),
         secondary_y=True,
     )
 

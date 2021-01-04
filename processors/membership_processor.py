@@ -2,6 +2,7 @@ import os
 import pandas as pd
 import numpy as np
 from typing import List
+from datetime import datetime
 
 PATH: str = os.path.join('data', 'raw')
 DAOSTAK_SRCS: List[str] = [os.path.join(PATH, 'daostack_members.csv')]
@@ -25,7 +26,8 @@ def sequence_members(df: pd.DataFrame) -> pd.DataFrame:
 
     # fill gaps
     first = dff['date'].min()
-    last = dff['date'].max()
+    #last = dff['date'].max()
+    last = datetime.strptime('01/12/2020', "%d/%m/%Y") # fill with fix date
     idx = pd.date_range(start=first, end=last, freq='D')
     filler = pd.DataFrame({'date': idx, 'members': 0})
 
